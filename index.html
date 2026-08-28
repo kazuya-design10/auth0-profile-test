@@ -1,35 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Progressive Profiling</title>
+  <meta charset="UTF-8">
+  <title>Basic information</title>
 </head>
 
 <body>
 
-<h1>Profile Form</h1>
+<h1>Basic information</h1>
 
-<form>
+<form id="profileForm">
 
-<label>部署</label>
-<input
-  type="text"
-  name="department">
+  <p>名前</p>
+  <input id="name">
 
-<br><br>
+  <p>年齢</p>
+  <input id="age">
 
-<label>役職</label>
-<input
-  type="text"
-  name="position">
+  <p>市区町村</p>
+  <input id="city">
 
-<br><br>
+  <br><br>
 
-<button type="submit">
-  送信
-</button>
+  <button type="submit">
+    保存
+  </button>
 
 </form>
+
+<script>
+
+const params =
+  new URLSearchParams(window.location.search);
+
+const state =
+  params.get("state");
+
+console.log(state);
+
+document
+.getElementById("profileForm")
+.addEventListener("submit", (e) => {
+
+  e.preventDefault();
+
+  alert("submit test");
+
+});
+
+</script>
 
 </body>
 </html>
