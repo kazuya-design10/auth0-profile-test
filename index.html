@@ -43,8 +43,7 @@ document
 .addEventListener("submit", (e) => {
 
   e.preventDefault();
-
-  alert("submit test");
+  fetch("/api/save-profile")
 
 });
 
