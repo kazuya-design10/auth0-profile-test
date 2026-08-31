@@ -10,10 +10,11 @@
 <h1>Basic information</h1>
 
 <form id="profileForm">
-
   <p>名前</p>
-  <input id="name">
-
+  <p>姓</p>
+  <input id="first_name">
+  <p>名</p>
+  <input id="last_name">
   <p>年齢</p>
   <input id="age">
 
@@ -55,7 +56,8 @@ document
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    name,
+    first_name,
+    lastt_name,
     age,
     city,
     sessionToken,
