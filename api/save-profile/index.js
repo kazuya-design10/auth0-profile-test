@@ -5,6 +5,8 @@ module.exports = async function (context, req) {
     name,
     age,
     city,
+    first_name,
+    last_name,
     user_id
   } = req.body;
 
