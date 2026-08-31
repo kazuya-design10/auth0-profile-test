@@ -1,6 +1,20 @@
+module.exports = async function (context, req) {
 
+  context.res = {
+    status: 200,
+    body: {
+      message: "hello",
+      body: req.body
+    }
+  };
+
+};
+/*  
 module.exports = async function (context, req) {
 try {
+
+
+
 
 //test start
   context.res = {
@@ -141,3 +155,4 @@ try {
     };
   }
 };
+*/
