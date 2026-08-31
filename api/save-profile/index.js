@@ -16,14 +16,14 @@ try {
 
 
 
-//test start
+
   context.res = {
     status: 200,
     body: req.body
   };
 
 };
-//end
+
   const {
     first_name,
     last_name,
@@ -71,10 +71,7 @@ try {
       return;
     }
 
-    /*
-     * Auth0 Actionから届いたsession_tokenを検証します。
-     * 署名の正当性、有効期限などが検証されます。
-     */
+
     const incomingToken = jwt.verify(
       session_token,
       secret,
@@ -93,18 +90,6 @@ try {
       return;
     }
 
-    /*
-     * Auth0へ返す新しいsession_tokenを作成します。
-     *
-     * sub:
-     *   最初のトークンと同じユーザーID
-     *
-     * state:
-     *   Auth0がリダイレクト時に付与した値
-     *
-     * other:
-     *   Action側の decodedToken.other に対応
-     */
     const responseToken = jwt.sign(
       {
         sub: incomingToken.sub,
