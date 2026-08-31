@@ -49,7 +49,19 @@ document
 .addEventListener("submit", (e) => {
 
   e.preventDefault();
-  fetch("/api/save-profile")
+  fetch("/api/save-profile", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    name,
+    age,
+    city,
+    sessionToken,
+    redirectUri
+  })
+})
 
 });
 
