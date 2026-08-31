@@ -2,18 +2,18 @@
 module.exports = async function (context, req) {
 try {
   const {
-    name,
-    age,
-    city,
     first_name,
     last_name,
+    age,
+    city,
     state,
     session_token
   } = req.body || {};
 
 
     if (
-      !name ||
+      !first_name ||
+      !last_name ||
       !age ||
       !city ||
       !state ||
@@ -87,7 +87,8 @@ try {
         sub: incomingToken.sub,
         state: state,
         other: {
-          name: String(name).trim(),
+          first_name: String(first_name).trim(),
+          last_name: String(last_name).trim(),
           age: String(age).trim(),
           city: String(city).trim()
         }
