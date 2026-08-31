@@ -1,9 +1,12 @@
-
 {
   "name": "auth0-profile-api",
   "version": "1.0.0",
   "private": true,
+  "main": "src/functions/*.js",
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
-    "jsonwebtoken": "^9.0.2"
+    "@azure/functions": "^4.5.0"
   }
 }
