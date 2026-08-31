@@ -1,6 +1,15 @@
 
 module.exports = async function (context, req) {
 try {
+
+//test start
+  context.res = {
+    status: 200,
+    body: req.body
+  };
+
+};
+//end
   const {
     first_name,
     last_name,
