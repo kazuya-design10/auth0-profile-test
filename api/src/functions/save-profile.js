@@ -1,5 +1,5 @@
 const { app } = require("@azure/functions");
-
+const jwt = require("jsonwebtoken");
 
 app.http("save-profile", {
   methods: ["GET", "POST"],
@@ -12,8 +12,8 @@ app.http("save-profile", {
       try {
         body = await request.json();
 
-const jwt = require("jsonwebtoken");
-        const responseToken =　jwt.sign({
+
+        const responseToken = jwt.sign({
           state: body.state,
           other: {
             first_name: body.first_name,
@@ -29,7 +29,13 @@ const jwt = require("jsonwebtoken");
         
       } catch (error) {
         context.log("JSON parse failed:", error.message);
-      }
+        return {
+                status: 500,
+                jsonBody: {
+                error: error.message
+                }
+                };
+        }
     
 
     return {
