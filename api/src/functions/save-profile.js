@@ -16,8 +16,8 @@ app.http("save-profile", {
         const responseToken = jwt.sign({
           iat:incomingToken.iat,
           iss:incomingToken.iss,
-          sub:incomingToken. sub,
-          exp:incomingToken. exp,
+          sub:incomingToken.sub,
+          exp:incomingToken.exp,
           ip:incomingToken.ip,
           subject:incomingToken.subject,
           audience:incomingToken.audience,
