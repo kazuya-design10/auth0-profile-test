@@ -1,1 +1,108 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>marketing information</title>
+</head>
+
+<body>
+<h1>marketing information</h1>
+<form id="marketingForm">
+
+  <h2>ニュースレターの登録</h2>
+  <p>
+    ニュースレターにご登録いただくと、
+    最新情報をお受け取りいただけます。
+  </p>
+
+  <p>私たちからのご連絡方法</p>
+  <div>
+    <label>
+      <inputtype="checkbox",id="email_contact">
+      Eメール
+    </label>
+
+    <p>
+      プロモーション、新製品、
+      重要な更新情報について、
+      定期的にEメールでお知らせします。
+    </p>
+  </div>
+
+  <div>
+    <label>
+      <inputtype="checkbox",id = "custom_marketing_content">
+      カスタマイズされたオンライン広告
+    </label>
+
+    <p>
+      お客様情報を利用して、
+      より関連性の高い広告を表示します。
+    </p>
+  </div>
+
+  <div>
+    <label>
+      <inputtype="checkbox",id="subscribed">
+      ニュースレター購読
+    </label>
+  </div>
+
+  <p>
+    送信することで、
+    プライバシーポリシーに従った
+    情報利用に同意したものとみなされます。
+  </p>
+
+  <button type="submit">
+    送信
+  </button>
+</form>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const state = params.get("state");
+const sessionToken = params.get("session_token");
+const redirectUri = params.get("redirect_uri");
+
+document
+.getElementById("profileForm")
+.addEventListener("submit", async(e) => {
+
+  e.preventDefault();
+  const response = await fetch("/api/save-profile", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+  first_name: document.getElementById("first_name").value,
+  last_name: document.getElementById("last_name").value,
+  age: document.getElementById("age").value,
+  city: document.getElementById("city").value,
+  state,
+  session_token: sessionToken
+  })
+})
+const result = await response.json();
+const form = document.createElement("form");
+
+form.method = "POST";
+form.action = result.continueUrl;
+
+const tokenInput = document.createElement("input");
+tokenInput.type = "hidden";
+tokenInput.name = "session_token";
+tokenInput.value = result.sessionToken;
+form.appendChild(tokenInput);
+document.body.appendChild(form);
+form.submit();
+
+
+});
+
+</script>
+
+</body>
+</html>
