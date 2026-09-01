@@ -15,10 +15,6 @@ app.http("save-marketing", {
         );
 
         const responseToken = jwt.sign({
-          /*
-          iat:incomingToken.iat,
-          exp:incomingToken.exp,
-          */
           iss:incomingToken.iss,
           sub:incomingToken.sub,
           ip:incomingToken.ip,
@@ -27,10 +23,9 @@ app.http("save-marketing", {
           expiresIn:incomingToken.expiresIn,
           state: body.state,
           other: {
-            first_name: body.first_name,
-            last_name: body.last_name,
-            age: body.age,
-            city: body.city
+            email_contact: body.email_contact,
+            custom_marketing_content: body.custom_marketing_content,
+            subscribed: body.subscribed
           }
         },
     process.env.SESSION_TOKEN_SECRET,{
