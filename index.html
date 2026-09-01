@@ -41,7 +41,7 @@ document
 .addEventListener("submit", async(e) => {
 
   e.preventDefault();
-  fetch("/api/save-profile", {
+  const response = fetch("/api/save-profile", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
