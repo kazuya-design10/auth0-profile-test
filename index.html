@@ -38,7 +38,7 @@ console.log(state);
 
 document
 .getElementById("profileForm")
-.addEventListener("submit", (e) => {
+.addEventListener("submit", async(e) => {
 
   e.preventDefault();
   fetch("/api/save-profile", {
@@ -55,7 +55,9 @@ document
   session_token: sessionToken
   })
 })
+const result = await response.json();
 
+console.log(result);
 });
 
 </script>
