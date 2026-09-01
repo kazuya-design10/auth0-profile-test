@@ -14,6 +14,14 @@ app.http("save-profile", {
         );
 
         const responseToken = jwt.sign({
+          iat:incomingToken.iat,
+          iss:incomingToken.iss,
+          sub:incomingToken. sub,
+          exp:incomingToken. exp,
+          ip:incomingToken.ip,
+          subject:incomingToken.subject,
+          audience:incomingToken.audience,
+          expiresIn:incomingToken.expiresIn,
           state: body.state,
           other: {
             first_name: body.first_name,
