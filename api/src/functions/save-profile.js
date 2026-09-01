@@ -12,7 +12,8 @@ app.http("save-profile", {
         body.session_token,
         process.env.SESSION_TOKEN_SECRET
         );
-        
+        console.log("受け取ったセッション");
+        console.log(body.session_token);
         console.log(JSON.stringify(incomingToken,null,2));
         
         const responseToken = jwt.sign({
