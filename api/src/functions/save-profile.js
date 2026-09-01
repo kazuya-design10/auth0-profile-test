@@ -12,7 +12,9 @@ app.http("save-profile", {
         body.session_token,
         process.env.SESSION_TOKEN_SECRET
         );
-
+        
+        console.log(incomingToken);
+        
         const responseToken = jwt.sign({
           state: body.state,
           other: {
