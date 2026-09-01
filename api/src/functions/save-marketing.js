@@ -2,7 +2,7 @@
 const { app } = require("@azure/functions");
 const jwt = require("jsonwebtoken");
 
-app.http("save-profile", {
+app.http("save-marketing", {
   methods: ["POST"],
   authLevel: "anonymous",
   handler: async (request, context) => {
