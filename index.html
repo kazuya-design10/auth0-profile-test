@@ -34,12 +34,7 @@ const params = new URLSearchParams(window.location.search);
 const state = params.get("state");
 const sessionToken = params.get("session_token");
 const redirectUri = params.get("redirect_uri");
-/*
-console.log("state");
-console.log(state);
-console.log("sessionToken");  
-console.log(sessionToken);
-*/  
+
 document
 .getElementById("profileForm")
 .addEventListener("submit", async(e) => {
