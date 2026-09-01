@@ -77,10 +77,9 @@ document
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-  first_name: document.getElementById("first_name").value,
-  last_name: document.getElementById("last_name").value,
-  age: document.getElementById("age").value,
-  city: document.getElementById("city").value,
+  email_contact: document.getElementById("first_name").checked,
+  custom_marketing_content: document.getElementById("last_name").checked,
+  subscribed: document.getElementById("age").checked,
   state,
   session_token: sessionToken
   })
