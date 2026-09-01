@@ -58,6 +58,18 @@ document
 const result = await response.json();
 
 console.log(result);
+const form = document.createElement("form");
+
+form.method = "POST";
+form.action = result.continueUrl;
+
+const tokenInput = document.createElement("input");
+tokenInput.type = "hidden";
+tokenInput.name = "session_token";
+tokenInput.value = result.sessionToken;
+form.appendChild(tokenInput);
+document.body.appendChild(form);
+form.submit();
 });
 
 </script>
