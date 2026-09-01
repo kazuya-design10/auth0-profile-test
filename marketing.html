@@ -77,9 +77,9 @@ document
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-  email_contact: document.getElementById("first_name").checked,
-  custom_marketing_content: document.getElementById("last_name").checked,
-  subscribed: document.getElementById("age").checked,
+  email_contact: document.getElementById("email_contact").checked,
+  custom_marketing_content: document.getElementById("custom_marketing_content").checked,
+  subscribed: document.getElementById("subscribed").checked,
   state,
   session_token: sessionToken
   })
